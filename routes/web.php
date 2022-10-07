@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SettingController::class, 'welcome'])->name('welcome');
+Route::get('/terms', [SettingController::class, 'terms'])->name('terms');
+Route::get('/about', [SettingController::class, 'about'])->name('about');
+Route::get('/services', [SettingController::class, 'services'])->name('services');
+Route::get('/contact', [SettingController::class, 'contact'])->name('contact');
+Route::get('/reviews', [SettingController::class, 'reviews'])->name('reviews');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
