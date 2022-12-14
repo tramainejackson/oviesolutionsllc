@@ -17,8 +17,11 @@
 /public/storage
 /public/storage/*
 /resources/addons
-/resources/scss
+/resources/css
+/resources/img
+/resources/js
 /resources/src
+/resources/scss
 /storage/*.key
 /tests
 /vendor
