@@ -39,10 +39,10 @@
         </div>
 
         <div class="row justify-content-center justify-content-lg-evenly">
-            <div class="col-lg-2 col-4 d-flex align-items-center justify-content-end">
+            <div class="col-lg-2 col-md-4 col-4 d-flex align-items-center justify-content-end">
                 <img class="img-fluid h-75" src="{{ asset('/images/home_image_vertical1.png') }}" alt=""/>
             </div>
-            <div class="col-lg-3 col-4 d-flex align-items-center justify-content-end">
+            <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
                     <h2 class="">Program/Project Management</h2>
                     <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
@@ -57,7 +57,7 @@
             <div class="col-lg-2 col-4 d-flex align-items-center justify-content-end">
                 <img class="img-fluid h-75" src="{{ asset('/images/home_image_vertical2.png') }}" alt=""/>
             </div>
-            <div class="col-lg-3 col-4 d-flex align-items-center justify-content-end">
+            <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
                     <h2 class="">Software Support</h2>
                     <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
@@ -73,7 +73,7 @@
             <div class="col-lg-2 col-4 d-flex align-items-center justify-content-end">
                 <img class="img-fluid h-75" src="{{ asset('/images/home_image_vertical3.png') }}" alt=""/>
             </div>
-            <div class="col-lg-3 col-4 d-flex align-items-center justify-content-end">
+            <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
                     <h2 class="">Hardware Repair</h2>
                     <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
@@ -88,7 +88,7 @@
             <div class="col-lg-2 col-4 d-flex align-items-center justify-content-end">
                 <img class="img-fluid h-75" src="{{ asset('/images/home_image_vertical4.png') }}" alt=""/>
             </div>
-            <div class="col-lg-3 col-4 d-flex align-items-center justify-content-end">
+            <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
                     <h2 class="">Backup and Disaster Recovery</h2>
                     <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
@@ -100,8 +100,8 @@
 
         <div>
             <div class="row align-items-center justify-content-center">
-                <div class="col-2 my-5">
-                    <a href="{{ route('services') }}" class="btn btn-lg">See All Services</a>
+                <div class="col my-5 text-center">
+                    <a href="{{ route('services') }}" class="btn btn-lg btn-secondary">See All Services</a>
                 </div>
             </div>
         </div>
