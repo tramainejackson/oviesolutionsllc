@@ -25,23 +25,23 @@
                     <ul class="list-unstyled mb-0">
                         <li>
                             <div class="">
-                                <x-nav-link :href="route('services')" :active="request()->routeIs('services')" style="color:white">
+                                <x-footer-link :href="route('services')" :active="request()->routeIs('services')" style="color:white">
                                     {{ __('Services') }}
-                                </x-nav-link>
+                                </x-footer-link>
                             </div>
                         </li>
                         <li>
                             <div class="">
-                                <x-nav-link :href="route('terms')" :active="request()->routeIs('terms')" style="color:white">
+                                <x-footer-link :href="route('terms')" :active="request()->routeIs('terms')" style="color:white">
                                     {{ __('Terms') }}
-                                </x-nav-link>
+                                </x-footer-link>
                             </div>
                         </li>
                         <li>
                             <div class="">
-                                <x-nav-link :href="route('about')" :active="request()->routeIs('about')" style="color:white">
+                                <x-footer-link :href="route('about')" :active="request()->routeIs('about')" style="color:white">
                                     {{ __('About') }}
-                                </x-nav-link>
+                                </x-footer-link>
                             </div>
                         </li>
                     </ul>
@@ -56,36 +56,36 @@
                         @auth
                             <li>
                                 <div class="">
-                                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" style="color:white">
+                                    <x-footer-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" style="color:white">
                                         {{ __('Dashboard') }}
-                                    </x-nav-link>
+                                    </x-footer-link>
                                 </div>
                             </li>
                         @endauth
 
                         <li>
                             <div class="">
-                                <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')" style="color:white">
+                                <x-footer-link :href="route('contact')" :active="request()->routeIs('contact')" style="color:white">
                                     {{ __('Contact') }}
-                                </x-nav-link>
+                                </x-footer-link>
                             </div>
                         </li>
 
                         <li>
                             <div class="">
-                                <x-nav-link :href="route('reviews')" :active="request()->routeIs('reviews')" style="color:white">
+                                <x-footer-link :href="route('reviews')" :active="request()->routeIs('reviews')" style="color:white">
                                     {{ __('Reviews') }}
-                                </x-nav-link>
+                                </x-footer-link>
                             </div>
                         </li>
 
                         @auth
                             <li>
                                 <div class="">
-                                    <x-nav-link :href="route('logout')"
+                                    <x-footer-link :href="route('logout')"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">
                                         {{ __('Logout') }}
-                                    </x-nav-link>
+                                    </x-footer-link>
                                 </div>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -95,9 +95,9 @@
                             </li>
                         @else
                             <li>
-                                <x-nav-link :href="route('login')" :active="request()->routeIs('login')" style="color:white">
+                                <x-footer-link :href="route('login')" :active="request()->routeIs('login')" style="color:white">
                                     {{ __('Login') }}
-                                </x-nav-link>
+                                </x-footer-link>
                             </li>
                         @endauth
                     </ul>
