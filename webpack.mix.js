@@ -11,10 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/src/scss/mdb.pro.scss', 'public/css/style.min.css');
-// mix.postCss('resources/css/mdb.min.css', 'public/css/bootstrap.min.css');
+mix.sass('resources/src/scss/mdb.pro.scss', 'public/css/style.min.css')
+    .sass('resources/mdb4/scss/mdb-pro.scss', 'public/css/style2.min.css');
 
-mix.js('resources/js/mdb.pro.js', 'public/js/scripts.min.js');
+mix.postCss('resources/css/custom_styles.css', 'public/css');
+
+mix.js('resources/src/js/mdb.pro.js', 'public/js/scripts.min.js');
 
 // mix.js('resources/js/style.js', 'public/js').postCss('resources/css/style.css', 'public/css', [
 //     require('tailwindcss'),

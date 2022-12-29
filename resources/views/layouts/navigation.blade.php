@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="navbar navbar-light navbar-expand-lg grey lighten-4 mb-5">
+<nav x-data="{ open: false }" class="navbar navbar-light navbar-expand-lg mb-5">
     <!-- Primary Navigation Menu -->
     <!-- Container wrapper -->
     <div class="container-fluid">

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom_styles.css') }}">
 
 </head>
 <body class="">

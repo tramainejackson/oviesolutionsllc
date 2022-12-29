@@ -3,7 +3,13 @@
     @section('additional_css')
         <!-- Style For Input Formatting -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{ asset('css/mdb.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/style2.min.css')}}">
+
+        <style type="text/css">
+            .navbar {
+                font-weight: inherit;
+            }
+        </style>
     @endsection
 
     <x-slot name="header">
