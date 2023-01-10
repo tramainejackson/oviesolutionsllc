@@ -73,7 +73,7 @@
 
                         <li>
                             <div class="">
-                                <x-footer-link :href="route('reviews')" :active="request()->routeIs('reviews')" style="color:white">
+                                <x-footer-link :href="route('reviews.index')" :active="request()->routeIs('reviews')" style="color:white">
                                     {{ __('Reviews') }}
                                 </x-footer-link>
                             </div>

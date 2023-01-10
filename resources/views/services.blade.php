@@ -1,18 +1,127 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Services') }}
-        </h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="offset-1 col-4 col-md-4 px-4">
+                    <h1 class="display-1 fw-bold text-black">analyse<span class="text-third" style="font-family: 'Bakbak One', cursive;">,</span></h1>
+
+                    <h1 class="display-1 fw-bold text-black">advise<span class="text-third" style="font-family: 'Bakbak One', cursive;">,</span></h1>
+
+                    <h1 class="display-1 fw-bold text-black">manage<span class="text-third" style="font-family: 'Bakbak One', cursive;">,</span></h1>
+
+                    <h1 class="display-1 fw-bold text-black">support<span class="text-third" style="font-family: 'Bakbak One', cursive;">.</span></h1>
+                </div>
+
+                <div class="col-1 col-md-1 align-self-center text-center pb-4">
+                    <div class="vr" style="min-height: 250px;"></div>
+                </div>
+
+                <div class="col-6 col-md-6 align-self-center text-center pb-4">
+                    <img src="/images/character_computer.png" alt="Character Computer" class="img-fluid"/>
+                </div>
+            </div>
+        </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <p class="">Ovie Solutions is an IT firm which aims to provide support and expertise to include program/project management, helpdesk support, hardware repair, software support, database administration, backup and disaster recovery, cloud management services, network security, and IT recycling services</p>
+    <div class="container my-5" id="services">
+
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h4 class="text-secondary m-0">What We Offer</h4>
+                <h1 class="text-black">There Is A Host Of Services To Fit Your Needs</h1>
+                <h3 class="small">Just tap or click one of the services to see more detailed information.</h3>
+            </div>
+        </div>
+
+        <div class="row row-cols-3 g-4 mx-5">
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Software Support</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
                 </div>
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <p class="">Ovie Solutions serves individuals, public and private businesses. There is not a particular target audience or demographic in mind at this time</p>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Helpdesk Support</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Hardware Repair</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Program/Project Management</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Database Administration</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Backup & Disaster Recovery</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam..</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Cloud Management</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Network Security</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-third bg-opacity-25">
+                    <div class="card-body">
+                        <i class="fas fa-2x fa-allergies text-secondary"></i>
+                        <h4 class="card-title mt-3 mb-2 text-black">Hardware Recycling</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+                            earum repellat quaerat voluptatibus placeat nam.</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@
 
                 <!-- Navigation Links -->
                 <div class="px-2">
-                    <x-nav-link :href="route('reviews')" :active="request()->routeIs('reviews')">
+                    <x-nav-link :href="route('reviews.index')" :active="request()->routeIs('reviews.index')">
                         {{ __('Reviews') }}
                     </x-nav-link>
                 </div>
