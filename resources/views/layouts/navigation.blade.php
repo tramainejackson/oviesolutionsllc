@@ -13,17 +13,17 @@
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Logo -->
-            <div class="shrink-0 flex items-center">
-                <a class="navbar-brand" href="{{ route('welcome') }}">
+            <div class="d-flex flex-column align-items-center ms-3 ms-lg-0">
+                <a class="navbar-brand px-lg-2" href="{{ route('welcome') }}">
                     <x-application-logo class="block h-10 w-auto fill-current text-gray-600"/>
                 </a>
             </div>
 
             <!-- Right elements -->
-            <div class="d-flex flex-fill justify-content-end">
+            <div class="d-flex flex-fill flex-column align-items-center justify-content-lg-end flex-lg-row">
                 @auth
                     <!-- Navigation Links -->
-                    <div class="px-2">
+                    <div class="px-lg-2 my-1 my-lg-0">
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Dashboard') }}
                         </x-nav-link>
@@ -31,35 +31,35 @@
                 @endauth
 
                 <!-- Navigation Links -->
-                <div class="px-2">
+                <div class="px-lg-2 my-1 my-lg-0">
                     <x-nav-link :href="route('services')" :active="request()->routeIs('services')">
                         {{ __('Services') }}
                     </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="px-2">
+                <div class="px-lg-2 my-1 my-lg-0">
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('About') }}
                     </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="px-2">
+                <div class="px-lg-2 my-1 my-lg-0">
                     <x-nav-link :href="route('contact')" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="px-2">
+                <div class="px-lg-2 my-1 my-lg-0">
                     <x-nav-link :href="route('reviews.index')" :active="request()->routeIs('reviews.index')">
                         {{ __('Reviews') }}
                     </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="px-2">
+                <div class="px-lg-2 my-1 my-lg-0">
                     <x-nav-link :href="route('terms')" :active="request()->routeIs('terms')">
                         {{ __('Terms') }}
                     </x-nav-link>
@@ -67,7 +67,7 @@
 
                 @auth
                     <!-- Navigation Links -->
-                    <div class="">
+                    <div class="px-lg-2 my-1 my-lg-0">
                         <x-nav-link :href="route('logout')"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -79,7 +79,7 @@
                     </form>
                 @else
                     <!-- Navigation Links -->
-                    <div class="">
+                    <div class="px-lg-2 my-1 my-lg-0">
                         <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                             {{ __('Login') }}
                         </x-nav-link>
