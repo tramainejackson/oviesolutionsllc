@@ -21,13 +21,12 @@
         <div class="row">
             <div class="col-12 col-md-8 px-5 py-3 text-secondary">
                 <h1 class="">Vision</h1>
-                <p class="">Deliver competent service and superior customer experience.</p>
+                <p class="">{{ $setting->vision }}.</p>
             </div>
             <div class="col-sm-12"></div>
             <div class="col-12 px-5 py-3 text-secondary">
                 <h1 class="">Mission</h1>
-                <p class="">To provide customer driven business solutions to key problems faced during daily
-                    operations</p>
+                <p class="">{{ $setting->mission }}</p>
             </div>
         </div>
     </div>

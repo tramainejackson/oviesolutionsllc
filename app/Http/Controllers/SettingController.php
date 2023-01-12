@@ -7,8 +7,8 @@ namespace App\Http\Controllers;
 //use App\Http\Requests\UpdatePriceRequest;
 //use App\Models\Message;
 //use App\Models\Application;
-//use App\Models\Price;
-//use App\Models\Setting;
+use App\Models\Term;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -62,7 +62,9 @@ class SettingController extends Controller
      */
     public function terms()
     {
-        return view('terms');
+        $all_terms = Term::all();
+
+        return view('terms', compact('all_terms'));
     }
 
     /**
@@ -99,14 +101,14 @@ class SettingController extends Controller
     }
 
     /**
-     * Display the reviews page
+     * Display the admin dashboard
      *
      * @return mixed
      */
-    public function reviews()
+    public function dashboard()
     {
         //Return the view
-        return view('reviews');
+        return view('dashboard');
     }
 
     /**

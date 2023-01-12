@@ -11,7 +11,7 @@
         <!--Section: Content-->
         <div class="row">
 
-            @if($get_show_recommendations->isEmpty() && $get_show_recommendations->count() >= 1)
+            @if($get_show_reviews->isNotEmpty() && $get_show_reviews->count() >= 1)
 
                 <div class="col">
 
@@ -27,7 +27,7 @@
                                 <!--Slides-->
                                 <div class="carousel-inner" role="listbox">
 
-                                    @foreach($recommendations as $recommendation)
+                                    @foreach($reviews as $review)
 
                                         <!--Slide-->
                                         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
@@ -37,25 +37,25 @@
                                                 <!--Avatar-->
                                                 <div class="avatar mx-auto mb-4">
                                                     <img
-                                                        src="{{ asset('storage/images/' . $recommendation->consultContact->avatar) }}"
+                                                        src="{{ asset('/images/default.png') }}"
                                                         class="rounded-circle img-fluid"
                                                         alt="First sample avatar image">
                                                 </div>
                                                 <!--Content-->
                                                 <p>
-                                                    <i class="fas fa-quote-left"></i> {{ $recommendation->tell_someone }}
+                                                    <i class="fas fa-quote-left"></i> {{ $review->tell_someone }}
                                                     .
                                                 </p>
-                                                <h4 class="font-weight-bold">{{ $recommendation->consultContact->full_name() }}</h4>
+                                                <h4 class="font-weight-bold">{{ $review->name }}</h4>
 
                                                 <!--Ratings-->
                                                 <div class="" id="">
 
-                                                    @for($x=0; $x < floor((int)$recommendation->rating); $x++)
+                                                    @for($x=0; $x < floor((int)$review->rating); $x++)
                                                         <i class="fas fa-star blue-text"> </i>
                                                     @endfor
 
-                                                    @if(strlen($recommendation->rating) > 1)
+                                                    @if(strlen($review->rating) > 1)
                                                         <i class="fas fa-star-half-alt blue-text"> </i>
                                                     @endif
                                                 </div>

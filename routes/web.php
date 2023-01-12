@@ -20,11 +20,8 @@ Route::get('/terms', [SettingController::class, 'terms'])->name('terms');
 Route::get('/about', [SettingController::class, 'about'])->name('about');
 Route::get('/services', [SettingController::class, 'services'])->name('services');
 Route::get('/contact', [SettingController::class, 'contact'])->name('contact');
+Route::get('/dashboard', [SettingController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
 
 Route::resource('reviews', ReviewController::class);
-
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

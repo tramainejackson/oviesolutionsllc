@@ -29,9 +29,9 @@ class ReviewController extends Controller
      */
     public function index() {
     	$reviews = Review::all();
-	    $get_show_recommendations = Review::showTestimonials();
+	    $get_show_reviews = Review::showTestimonials();
 
-        return view('reviews', compact('reviews', 'get_show_recommendations'));
+        return view('reviews', compact('reviews', 'get_show_reviews'));
     }
 
     /**
