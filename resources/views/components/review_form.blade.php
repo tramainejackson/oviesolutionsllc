@@ -7,6 +7,11 @@
         .navbar {
             font-weight: inherit;
         }
+
+        .select-wrapper {
+            padding: 0.4rem 0 0.4rem 0;
+            margin: 0 0 0.5rem 0;
+        }
     </style>
 @endsection
 
@@ -65,33 +70,40 @@
     <div class="form-row" id="">
         <!-- Grid column -->
         <div class="col-12 col-md-6 col-xl-4">
-            <!--Blue select-->
-            <select name="meet_needs" class="mdb-select md-form">
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-            </select>
-            <label class="mdb-main-label" for="meet_needs">Did we meet all your expectations/accounting needs?</label>
-            <!--/Blue select-->
+            <div class="md-form">
+                <!--Blue select-->
+                <select name="recommend" class="select">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
 
-            @if ($errors->has('meet_needs'))
-                <span class="text-danger">{{ $errors->first('meet_needs') }}</span>
+                <label class="form-label select-label" for="recommend">Would you recommend our service to
+                    others?</label>
+                <!--/Blue select-->
+            </div>
+
+            @if ($errors->has('recommend'))
+                <span class="text-danger">{{ $errors->first('recommend') }}</span>
             @endif
         </div>
         <!-- Grid column -->
 
         <!-- Grid column -->
         <div class="col-12 col-md-6 col-xl-4">
-            <!--Blue select-->
-            <select name="recommend" class="mdb-select md-form">
-                <option value="1">Yes</option>
-                <option value="0">No</option>
-            </select>
+            <div class="md-form">
+                <!--Blue select-->
+                <select name="meet_needs" class="select">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
 
-            <label class="mdb-main-label" for="recommend">Would you recommend our service to others?</label>
-            <!--/Blue select-->
+                <label class="form-label select-label" for="meet_needs">Did we meet all your expectations/accounting
+                    needs?</label>
+                <!--/Blue select-->
+            </div>
 
-            @if ($errors->has('recommend'))
-                <span class="text-danger">{{ $errors->first('recommend') }}</span>
+            @if ($errors->has('meet_needs'))
+                <span class="text-danger">{{ $errors->first('meet_needs') }}</span>
             @endif
         </div>
         <!-- Grid column -->
@@ -150,19 +162,11 @@
 
         <!-- Grid column -->
         <div class="col-12 mb-3">
-            <button class='btn btn-outline-mdb-color rounded-9' type='submit'>Send Review <i class="fas fa-location-arrow"></i>
+            <button class='btn btn-outline-mdb-color rounded-9' type='submit'>Send Review <i
+                    class="fas fa-location-arrow"></i>
             </button>
         </div>
         <!-- Grid column -->
     </div>
 </form>
 <!-- Testimonial Form -->
-
-@section('additional_scripts')
-    <!-- JQuery -->
-    <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{{ asset('js/mdb.min.js')}}"></script>
-    <!-- Additional Scripts Needed For Form -->
-    <script type="text/javascript" src="{{ asset('js/myjs.js')}}"></script>
-@endsection
