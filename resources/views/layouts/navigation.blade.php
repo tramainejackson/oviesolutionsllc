@@ -4,9 +4,13 @@
     <div class="container-fluid">
 
         <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+        <button class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
                 data-mdb-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
 
@@ -24,9 +28,48 @@
                 @auth
                     <!-- Navigation Links -->
                     <div class="px-lg-2 my-1 my-lg-0">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            {{ __('Dashboard') }}
-                        </x-nav-link>
+                        <div class="container-fluid">
+                            <ul class="navbar-nav">
+                                <!-- Dropdown -->
+                                <li class="dropdown">
+                                    <a
+                                        class="dropdown-toggle text-primary"
+                                        href="#"
+                                        id="navbarDropdownMenuLink"
+                                        role="button"
+                                        data-mdb-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >Admin</a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li class="my-1">
+                                            <x-nav-link :href="route('dashboard')"
+                                                        :active="request()->routeIs('dashboard')">
+                                                {{ __('Dashboard') }}
+                                            </x-nav-link>
+                                        </li>
+                                        <li class="my-1">
+                                            <x-nav-link :href="route('admin_messages')"
+                                                        :active="request()->routeIs('admin_messages')">
+                                                {{ __('Messages') }}
+                                            </x-nav-link>
+                                        </li>
+                                        <li class="my-1">
+                                            <x-nav-link :href="route('admin_reviews')"
+                                                        :active="request()->routeIs('admin_reviews')">
+                                                {{ __('Reviews') }}
+                                            </x-nav-link>
+                                        </li>
+                                        <li class="my-1">
+                                            <x-nav-link :href="route('admin_terms')"
+                                                        :active="request()->routeIs('admin_terms')">
+                                                {{ __('Terms') }}
+                                            </x-nav-link>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 @endauth
 

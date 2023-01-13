@@ -22,7 +22,7 @@
                     <input name="first_name" type="text" class="form-control" id="" value="{{ old('first_name') }}"
                            placeholder="Enter First Name" {{ $errors->has('first_name') ? 'autofocus' : '' }} />
 
-                    <label for="first_name">First Name</label>
+                    <label for="first_name" class="active">First Name</label>
 
                     @if ($errors->has('first_name'))
                         <span class="text-danger">{{ $errors->first('first_name') }}</span>
@@ -36,7 +36,7 @@
                     <input name="last_name" type="text" class="form-control" id="" value="{{ old('last_name') }}"
                            placeholder="Enter Last Name" {{ $errors->has('last_name') ? 'autofocus' : '' }} />
 
-                    <label for="last_name">Last Name</label>
+                    <label for="last_name" class="active">Last Name</label>
 
                     @if ($errors->has('last_name'))
                         <span class="text-danger">{{ $errors->first('last_name') }}</span>
@@ -52,7 +52,7 @@
                     <input name="email" type="email" class="form-control" id="" value="{{ old('email') }}"
                            placeholder="Enter Email Address" {{ $errors->has('email') ? 'autofocus' : '' }} />
 
-                    <label for="email">Email Address</label>
+                    <label for="email" class="active">Email Address</label>
 
                     @if ($errors->has('email'))
                         <span class="text-danger">{{ $errors->first('email') }}</span>
@@ -103,7 +103,7 @@
                 <input name="rating" type="number" class="form-control" id="" step="0.5" min="0" max="5"
                        placeholder="Enter a Number" {{ $errors->has('rating') ? 'autofocus' : '' }} />
 
-                <label for="rating" class="mdb-main-label">Rate us from 1-5? 5 being the best</label>
+                <label for="rating" class="active">Rate us from 1-5? 5 being the best</label>
 
                 @if ($errors->has('rating'))
                     <span class="text-danger">{{ $errors->first('rating') }}</span>
@@ -119,7 +119,7 @@
                 <textarea name="suggestions" id="" class="md-textarea form-control" rows="5"
                           placeholder="Is there anything we could have done differently?">{{ old('suggestions') ? old('suggestions') : '' }}</textarea>
 
-                <label for="suggestions" class="mdb-main-label">Is there anything we could have done
+                <label for="suggestions" class="active">Is there anything we could have done
                     differently?</label>
 
                 @if ($errors->has('suggestions'))
@@ -136,7 +136,7 @@
                 <textarea name="tell_someone" id="" class="md-textarea form-control" rows="5"
                           placeholder="Please provide a review or comment.">{{ old('tell_someone') ? old('tell_someone') : '' }}</textarea>
 
-                <label for="tell_someone" class="mdb-main-label">Please provide a review or comment.</label>
+                <label for="tell_someone" class="active">Please provide a review or comment.</label>
 
                 @if ($errors->has('tell_someone'))
                     <span class="text-danger">{{ $errors->first('tell_someone') }}</span>
@@ -161,10 +161,6 @@
 @section('additional_scripts')
     <!-- JQuery -->
     <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{{ asset('js/popper.min.js')}}"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('js/mdb.min.js')}}"></script>
     <!-- Additional Scripts Needed For Form -->

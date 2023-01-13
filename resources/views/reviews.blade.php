@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="col-12 text-center dark-grey-text" id="">
             <!-- Section heading -->
-            <h3 class="font-weight-bold mb-4 pb-2">Reviews</h3>
+            <h2 class="h2 font-weight-bold mb-4 pb-2 font2">Customer <span class="text-primary text-uppercase">Feedback</span></h2>
         </div>
     </x-slot>
 

@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 //use App\Http\Requests\UpdatePriceRequest;
 //use App\Models\Message;
 //use App\Models\Application;
+use App\Models\Message;
 use App\Models\Term;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -108,7 +109,43 @@ class SettingController extends Controller
     public function dashboard()
     {
         //Return the view
-        return view('dashboard');
+        return view('admin.index');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \App\Models\Setting $message
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_messages()
+    {
+        // Get all messages
+        $messages = Message::paginate(10);
+
+        return view('admin.messages', compact('messages'));
+    }
+
+    /**
+     * Display the admin dashboard
+     *
+     * @return mixed
+     */
+    public function admin_terms()
+    {
+        //Return the view
+        return view('admin.terms');
+    }
+
+    /**
+     * Display the admin dashboard
+     *
+     * @return mixed
+     */
+    public function admin_reviews()
+    {
+        //Return the view
+        return view('admin.reviews');
     }
 
     /**
@@ -230,20 +267,6 @@ class SettingController extends Controller
         }
 
         return redirect()->back()->with('status', 'Settings updated successfully');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \App\Models\Setting $message
-     * @return \Illuminate\Http\Response
-     */
-    public function messages()
-    {
-        // Get all messages
-        $messages = Message::paginate(10);
-
-        return view('messages', compact('messages'));
     }
 
     /**

@@ -1,8 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-center">
-            {{ __('Terms of Service') }}
-        </h2>
+        <div class="col-12 text-center dark-grey-text" id="">
+            <!-- Section heading -->
+            <h2 class="h2 font-weight-bold mb-4 pb-2 font2">Terms of <span class="font2 text-primary text-uppercase">Service</span></h2>
+        </div>
     </x-slot>
 
     <div class="container-fluid">

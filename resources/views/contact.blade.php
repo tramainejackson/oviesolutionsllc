@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-9 px-4">
-                    <h2 class="display-1 pb-4">Let's work together</h2>
+                    <h2 class="display-1 pb-4 font2">Let's work <span class="text-primary text-uppercase">together</span></h2>
 
                     <div class="pb-4">
                         <p class="my-0 py-0">Let's build ad work together to get it done.</p>
@@ -146,14 +146,4 @@
         </div>
     </div>
 
-    @section('additional_scripts')
-        <!-- JQuery -->
-        <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
-        <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="{{ asset('js/popper.min.js')}}"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
-        <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="{{ asset('js/mdb.min.js')}}"></script>
-    @endsection
 </x-app-layout>
