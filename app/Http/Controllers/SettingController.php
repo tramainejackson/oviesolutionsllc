@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-//use App\Http\Requests\StoreSettingRequest;
 //use App\Http\Requests\UpdateSettingRequest;
 //use App\Http\Requests\UpdatePriceRequest;
 //use App\Models\Message;
 //use App\Models\Application;
+use App\Http\Requests\StoreMessagesRequest;
 use App\Models\Message;
+use App\Models\Review;
 use App\Models\Term;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -102,12 +103,48 @@ class SettingController extends Controller
     }
 
     /**
+     * Store post from contact page
+     *
+     * @param StoreMessagesRequest $request
+     * @return mixed
+     */
+    public function contact_post(StoreMessagesRequest $request)
+    {
+        $message = new Message();
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->phone = $request->phone;
+        $message->organization = $request->organization;
+        $message->reason = $request->reason;
+
+        if ($message->save()) {
+            return back()->with('status', 'You contact request has been save! We will reach out to you in a reasonable amount of time. Thank You');
+        } else {
+            return back()->with('bad_status', 'Message not saved. Please try again.');
+        }
+    }
+
+    /**
      * Display the admin dashboard
      *
      * @return mixed
      */
     public function dashboard()
     {
+        //Return the view
+        return view('admin.index');
+    }
+
+    /**
+     * Update the admin options
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard_update(Request $request)
+    {
+        $setting = Setting::first();
+        dd($setting);
         //Return the view
         return view('admin.index');
     }
@@ -144,8 +181,24 @@ class SettingController extends Controller
      */
     public function admin_reviews()
     {
+        $reviews = Review::all();
+
         //Return the view
-        return view('admin.reviews');
+        return view('admin.reviews', compact('reviews'));
+    }
+
+    /**
+     * Display the admin dashboard
+     *
+     * @return mixed
+     */
+    public function admin_reviews_update(Request $request)
+    {
+        $review = Review::find(str_ireplace('review_num_', '', $request->review_id));
+
+        $review->show_review = $request->show_review;
+
+        $review->save();
     }
 
     /**
@@ -280,7 +333,8 @@ class SettingController extends Controller
         //
     }
 
-    public function remove_multiple_messages(Request $request) {
+    public function remove_multiple_messages(Request $request)
+    {
         $remove_selected = $request->remove_message;
         $removed_count = 0;
 
@@ -288,7 +342,7 @@ class SettingController extends Controller
             $message = Message::find($message_id);
 
             // Removed Consult Request
-            if($message->delete()) {
+            if ($message->delete()) {
                 $removed_count++;
             }
         }

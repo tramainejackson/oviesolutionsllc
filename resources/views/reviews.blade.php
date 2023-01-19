@@ -27,7 +27,7 @@
                                 <!--Slides-->
                                 <div class="carousel-inner" role="listbox">
 
-                                    @foreach($reviews as $review)
+                                    @foreach($get_show_reviews as $review)
 
                                         <!--Slide-->
                                         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
@@ -44,7 +44,6 @@
                                                 <!--Content-->
                                                 <p>
                                                     <i class="fas fa-quote-left"></i> {{ $review->tell_someone }}
-                                                    .
                                                 </p>
                                                 <h4 class="font-weight-bold">{{ $review->name }}</h4>
 

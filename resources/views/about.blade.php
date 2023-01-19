@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="col-sm-6 col-md-4">
-                    <img src="{{ asset('images/anthony1.png') }}" alt="" class="img-fluid"/>
+                    <img src="{{ asset('images/anthony3.png') }}" alt="" class="img-fluid"/>
                 </div>
             </div>
         </div>

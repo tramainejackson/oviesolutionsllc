@@ -35,7 +35,7 @@
 
             <div class="col-12">
 
-                <form method="POST" id=settings-form" action="{{ route('login') }}">
+                <form method="POST" id=settings-form" action="{{ route('dashboard_update') }}">
                     @csrf
 
                     <div class="container-fluid">
@@ -171,9 +171,7 @@
                             </div>
 
                             <div class="col-12 mt-4 text-left">
-                                <a class="btn btn-outline-mdb-color rounded-9"
-                                   onclick="document.getElementById('settings-form').submit();">Update Settings&nbsp;&nbsp;<i
-                                        class="fas fa-location-arrow"></i></a>
+                                <button class="btn btn-outline-mdb-color rounded-9" type="submit">Update Settings&nbsp;&nbsp;<i class="fas fa-location-arrow"></i></button>
                             </div>
                         </div>
                     </div>

@@ -15,7 +15,7 @@
     </style>
 @endsection
 
-<!-- Testimonial Form -->
+<!-- Review Form -->
 <form method="POST" action="{{ route('reviews.store') }}" class="form">
     @csrf
 
@@ -169,4 +169,4 @@
         <!-- Grid column -->
     </div>
 </form>
-<!-- Testimonial Form -->
+<!-- Review Form -->

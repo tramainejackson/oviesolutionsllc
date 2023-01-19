@@ -22,15 +22,6 @@
 
     <div class="container-fluid my-5" id="admin_messages">
 
-        <div class="row mb-5">
-
-            <div class="col-12 col-md-6 mx-auto text-justify">
-                <h3 class="small text-muted text-uppercase">Here you will be able to change some of the website's
-                    standard information that show in multiple places such as email address, phone number and
-                    address.</h3>
-            </div>
-        </div>
-
         <div class="row">
 
             <div class="col-12">
