@@ -19,4 +19,16 @@ class Term extends Model
 	 */
 	protected $dates = ['deleted_at'];
 
+    /**
+     * Scope a query to only include most recent consult request
+     * that hasn't been responded to yet.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeShowTerms($query) {
+        return $query->where('show_term', '=', 1)
+            ->orderBy('created_at', 'asc')
+            ->get();
+    }
 }

@@ -19,6 +19,16 @@ class Review extends Model
 	 */
 	protected $dates = ['deleted_at'];
 
+    /**
+     * Create full name accessor
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return mixed
+     */
+    public function full_name()	{
+        return $this->first_name . " " . $this->last_name;
+    }
+
 	/**
 	 * Scope a query to only include most recent consult request
 	 * that hasn't been responded to yet.

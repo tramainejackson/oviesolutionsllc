@@ -24,14 +24,17 @@ Route::get('/services', [SettingController::class, 'services'])->name('services'
 Route::get('/contact', [SettingController::class, 'contact'])->name('contact');
 Route::post('/contact_post', [SettingController::class, 'contact_post'])->name('contact_post');
 
-//Dashboard
+//Admin Dashboard
 Route::get('/dashboard', [SettingController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
 Route::post('/dashboard_update', [SettingController::class, 'dashboard_update'])->name('dashboard_update')->middleware(['auth']);
 
 Route::get('/admin_messages', [SettingController::class, 'admin_messages'])->name('admin_messages')->middleware(['auth']);
-Route::get('/admin_terms', [SettingController::class, 'admin_terms'])->name('admin_terms')->middleware(['auth']);
 
-//Reviews
+//Admin Terms
+Route::get('/admin_terms', [SettingController::class, 'admin_terms'])->name('admin_terms')->middleware(['auth']);
+Route::post('/admin_terms', [SettingController::class, 'admin_terms_update'])->name('admin_terms_update')->middleware(['auth']);
+
+//Admin Reviews
 Route::get('/admin_reviews', [SettingController::class, 'admin_reviews'])->name('admin_reviews')->middleware(['auth']);
 Route::post('/admin_reviews', [SettingController::class, 'admin_reviews_update'])->name('admin_reviews_update')->middleware(['auth']);
 

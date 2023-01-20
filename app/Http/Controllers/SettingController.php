@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use App\Http\Requests\UpdateSettingRequest;
-//use App\Http\Requests\UpdatePriceRequest;
-//use App\Models\Message;
-//use App\Models\Application;
+use App\Http\Requests\UpdateSettingsRequest;
 use App\Http\Requests\StoreMessagesRequest;
 use App\Models\Message;
 use App\Models\Review;
@@ -64,7 +61,7 @@ class SettingController extends Controller
      */
     public function terms()
     {
-        $all_terms = Term::all();
+        $all_terms = Term::showTerms();
 
         return view('terms', compact('all_terms'));
     }
@@ -138,15 +135,26 @@ class SettingController extends Controller
     /**
      * Update the admin options
      *
-     * @param \Illuminate\Http\Request $request
+     * @param UpdateSettingsRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function dashboard_update(Request $request)
+    public function dashboard_update(UpdateSettingsRequest $request)
     {
         $setting = Setting::first();
-        dd($setting);
-        //Return the view
-        return view('admin.index');
+        $setting->email = $request->email;
+        $setting->phone = $request->phone;
+        $setting->address = $request->address;
+        $setting->city = $request->city;
+        $setting->state = $request->state;
+        $setting->zip = $request->zip;
+        $setting->mission = $request->mission;
+        $setting->vision = $request->vision;
+
+        if($setting->save()) {
+            return redirect()->back()->with('status', 'Settings Updated Successfully');
+        } else {
+            return redirect()->route('welcome')->with('status', 'Message Sent Successfully');
+        }
     }
 
     /**
@@ -170,8 +178,24 @@ class SettingController extends Controller
      */
     public function admin_terms()
     {
+        $all_terms = Term::all();
+
         //Return the view
-        return view('admin.terms');
+        return view('admin.terms', compact('all_terms'));
+    }
+
+    /**
+     * Display the admin dashboard
+     *
+     * @return mixed
+     */
+    public function admin_terms_update(Request $request)
+    {
+        $term = Term::find(str_ireplace('term_num_', '', $request->term_id));
+
+        $term->show_term = $request->show_term;
+
+        $term->save();
     }
 
     /**

@@ -31,14 +31,14 @@
                 <div class="">
                     <h4 class="uppercase">Call Us</h4>
 
-                    <p>{{ $setting->phone }}</p>
+                    <p>{{ $setting->concat_phone() }}</p>
                 </div>
 
                 @if($setting->address !== null)
                     <div class="">
                         <h4 class="uppercase">Address</h4>
 
-                        <p>{{ $setting->address }}</p>
+                        <p>{{ $setting->concat_address() }}</p>
                     </div>
                 @endif
             </div>

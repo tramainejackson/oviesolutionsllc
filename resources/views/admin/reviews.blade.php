@@ -16,20 +16,22 @@
                 <div class="col">
 
                     <!-- Card -->
-                    <div class="card">
+                    <div class="card h-100">
                         <div class="card-header">
-                            <h2 class="h2">{{ $review->name }}</h2>
+                            <h2 class="h2">{{ $review->full_name() }}</h2>
                         </div>
 
                         <div class="card-body">
 
                             <div>
-                                <h5 class="card-title d-flex align-items-center justify-content-between{{ $review->count() < 4 ? '': ' flex-xl-column-reverse' }}">Suggestions</h5>
+                                <h5 class="card-title d-flex align-items-center justify-content-between{{ $review->count() < 4 ? '': ' flex-xl-column-reverse' }}">
+                                    Suggestions</h5>
                                 <p class="card-text">{{ $review->suggestions }}</p>
                             </div>
 
                             <div>
-                                <h5 class="card-title d-flex align-items-center justify-content-between{{ $review->count() < 4 ? '': ' flex-xl-column-reverse' }}">Comment</h5>
+                                <h5 class="card-title d-flex align-items-center justify-content-between{{ $review->count() < 4 ? '': ' flex-xl-column-reverse' }}">
+                                    Comment</h5>
                                 <p class="card-text">{{ $review->tell_someone }}</p>
                             </div>
 
@@ -50,12 +52,21 @@
 
                             <h5 class="h5">Show Review?</h5>
 
-                            <div class="btn-group btnGroup{{ $loop->iteration }}" id="review_num_{{ $review->id }}" role="group">
-                                <input type="radio" class="btn-check show_review_btn" name="show_review" id="option{{ $loop->first ? $loop->iteration : $loop->iteration + 1 }}" onclick="radioSwitch(this)" autocomplete="off" {{ $review->show_review == 1 ? 'checked' : '' }} />
-                                <label class="btn {{ $review->show_review == 0 ? 'btn-secondary' : 'btn-success' }}" for="option{{ $loop->first ? $loop->iteration : $loop->iteration + 1 }}">Yes</label>
+                            <div class="btn-group btnGroup{{ $loop->iteration }}" id="review_num_{{ $review->id }}"
+                                 role="group">
+                                <input type="radio" class="btn-check show_review_btn" name="show_review"
+                                       id="option{{ $loop->first ? $loop->iteration : ($loop->iteration *2) - 1 }}"
+                                       onclick="radioSwitch(this)"
+                                       autocomplete="off" {{ $review->show_review == 1 ? 'checked' : '' }} />
+                                <label class="btn {{ $review->show_review == 0 ? 'btn-secondary' : 'btn-success' }}"
+                                       for="option{{ $loop->first ? $loop->iteration : ($loop->iteration *2) - 1 }}">Yes</label>
 
-                                <input type="radio" class="btn-check show_review_btn" name="show_review" id="option{{ $loop->first ? $loop->iteration + 1 : $loop->iteration + 2 }}" onclick="radioSwitch(this)" autocomplete="off" {{ $review->show_review == 0 ? 'checked' : '' }} />
-                                <label class="btn {{ $review->show_review == 0 ? 'btn-success' : 'btn-secondary' }}" for="option{{ $loop->first ? $loop->iteration + 1 : $loop->iteration + 2 }}">No</label>
+                                <input type="radio" class="btn-check show_review_btn" name="show_review"
+                                       id="option{{ $loop->first ? $loop->iteration + 1 : $loop->iteration * 2 }}"
+                                       onclick="radioSwitch(this)"
+                                       autocomplete="off" {{ $review->show_review == 0 ? 'checked' : '' }} />
+                                <label class="btn {{ $review->show_review == 0 ? 'btn-success' : 'btn-secondary' }}"
+                                       for="option{{ $loop->first ? $loop->iteration + 1 : $loop->iteration * 2 }}">No</label>
                             </div>
                         </div>
                     </div>

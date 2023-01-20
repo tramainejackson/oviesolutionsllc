@@ -2,67 +2,60 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
-use Carbon\Carbon;
 
 class Setting extends Model
 {
-	/**
-	 * Get the website cover photo
-	 */
-	public function gethitCountDateAttribute($value) {
-		$date = new Carbon($value);
+    use HasFactory;
+    use SoftDeletes;
 
-		return $date->format('m/d/Y');
-	}
+    /**
+     * Get the phone number of the settings
+     */
+    public function concat_phone()
+    {
+        if ($this->phone != null) {
+            if (strlen($this->phone) == 10) {
+                $first3 = substr($this->phone, 0, 3);
+                $second3 = substr($this->phone, 3, 3);
+                $last4 = substr($this->phone, 6);
 
-	/**
-	 * Get the website last paid date
-	 */
-	public function getLastPaidDateAttribute($value) {
-		$value = new Carbon($value);
+                $concatPhone = $first3 . '-' . $second3 . '-' . $last4;
+            } else {
+                $concatPhone = $this->phone;
+            }
+        } else {
+            $concatPhone = $this->phone;
+        }
 
-		return $value;
-	}
+        return $concatPhone;
+    }
 
-	/**
-	 * Get the website domain renew date
-	 */
-	public function getRenewDateAttribute($value) {
-		$value = new Carbon($value);
+    /**
+     * Get the address of the settings
+     */
+    public function concat_address(): string
+    {
+        $address = '';
 
-		return $value;
-	}
+        if ($this->city != '') {
+            $address .= $this->city . ', ';
+        }
 
-	/**
-	 * Get the website cover photo
-	 */
-	public function getLogoAttribute($value) {
+        if ($this->state != '') {
+            $address .= $this->state;
 
-		if($value != null) {
-			// Check if file exist
-			$img_file = Storage::disk('public')->exists('images/' . $value);
+            if ($this->zip != '') {
+                $address .= ', ' . $this->zip;
+            }
+        } else {
+            if ($this->zip != '') {
+                $address .= $this->zip;
+            }
+        }
 
-			if ($img_file) {
-				$value = $value;
-			} else {
-				$value = 'default.png';
-			}
-		} else {
-			$value = 'default.png';
-		}
-
-		return $value;
-	}
-
-	/**
-	 * Check for active clients
-	 */
-	public function scopeActiveWebsites($query) {
-		return $query->where('active', '=', 'Y')
-			->get();
-	}
+        return $address;
+    }
 }

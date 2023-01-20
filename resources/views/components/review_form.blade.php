@@ -12,6 +12,10 @@
             padding: 0.4rem 0 0.4rem 0;
             margin: 0 0 0.5rem 0;
         }
+
+        .carousel .carousel-control-prev-icon, .carousel .carousel-control-next-icon {
+            background-image: none;
+        }
     </style>
 @endsection
 

@@ -2,7 +2,8 @@
     <x-slot name="header">
         <div class="col-12 text-center dark-grey-text" id="">
             <!-- Section heading -->
-            <h2 class="h2 font-weight-bold mb-4 pb-2 font2">Customer <span class="text-primary text-uppercase">Feedback</span></h2>
+            <h2 class="h2 font-weight-bold mb-4 pb-2 font2">Customer <span
+                    class="text-primary text-uppercase">Feedback</span></h2>
         </div>
     </x-slot>
 
@@ -17,77 +18,74 @@
 
                     <section class="text-center dark-grey-text">
 
-                        <div class="wrapper-carousel-fix">
+                        <!-- Carousel Wrapper -->
+                        <div id="reviews_carousel"
+                             class="carousel slide carousel-dark" data-mdb-ride="carousel"
+                             data-mdb-interval="5000">
 
-                            <!-- Carousel Wrapper -->
-                            <div id="carousel-example-1"
-                                 class="carousel no-flex testimonial-carousel slide carousel-fade" data-ride="carousel"
-                                 data-interval="false">
+                            <!--Slides-->
+                            <div class="carousel-inner">
 
-                                <!--Slides-->
-                                <div class="carousel-inner" role="listbox">
+                                @foreach($get_show_reviews as $review)
 
-                                    @foreach($get_show_reviews as $review)
+                                    <!--Slide-->
+                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
 
-                                        <!--Slide-->
-                                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                        <div class="testimonial">
 
-                                            <div class="testimonial">
+                                            <!--Avatar-->
+                                            <div class="avatar mx-auto mb-4">
+                                                <img
+                                                    src="{{ asset('/images/default.png') }}"
+                                                    class="rounded-circle img-fluid"
+                                                    alt="avatar"
+                                                    style="width: 150px;">
+                                            </div>
+                                            <!--Content-->
+                                            <p>
+                                                <i class="fas fa-quote-left"></i> {{ $review->tell_someone }}
+                                            </p>
+                                            <h4 class="font-weight-bold">{{ $review->name }}</h4>
 
-                                                <!--Avatar-->
-                                                <div class="avatar mx-auto mb-4">
-                                                    <img
-                                                        src="{{ asset('/images/default.png') }}"
-                                                        class="rounded-circle img-fluid"
-                                                        alt="First sample avatar image">
-                                                </div>
-                                                <!--Content-->
-                                                <p>
-                                                    <i class="fas fa-quote-left"></i> {{ $review->tell_someone }}
-                                                </p>
-                                                <h4 class="font-weight-bold">{{ $review->name }}</h4>
+                                            <!--Ratings-->
+                                            <div class="" id="">
 
-                                                <!--Ratings-->
-                                                <div class="" id="">
+                                                @for($x=0; $x < floor((int)$review->rating); $x++)
+                                                    <i class="fas fa-star blue-text"> </i>
+                                                @endfor
 
-                                                    @for($x=0; $x < floor((int)$review->rating); $x++)
-                                                        <i class="fas fa-star blue-text"> </i>
-                                                    @endfor
+                                                @if(strlen($review->rating) > 1)
+                                                    <i class="fas fa-star-half-alt blue-text"> </i>
+                                                @endif
+                                            </div>
 
-                                                    @if(strlen($review->rating) > 1)
-                                                        <i class="fas fa-star-half-alt blue-text"> </i>
-                                                    @endif
-                                                </div>
-
-                                                <!-- Loop Count -->
-                                                <div class="pt-5" id="">
-                                                    <p class="text-muted">{{ $loop->iteration }}
-                                                        / {{ $loop->count }}</p>
-                                                </div>
+                                            <!-- Loop Count -->
+                                            <div class="pt-5" id="">
+                                                <p class="text-muted">{{ $loop->iteration }}
+                                                    / {{ $loop->count }}</p>
                                             </div>
                                         </div>
-                                        <!--Slide-->
-                                    @endforeach
+                                    </div>
+                                    <!--Slide-->
+                                @endforeach
 
-                                </div>
-                                <!--Slides-->
-
-                                <!--Controls-->
-                                <a class="carousel-control-prev left carousel-control" href="#carousel-example-1"
-                                   role="button"
-                                   data-slide="prev">
-                                    <span class="icon-prev" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next right carousel-control" href="#carousel-example-1"
-                                   role="button"
-                                   data-slide="next">
-                                    <span class="icon-next" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                                <!--Controls-->
                             </div>
-                            <!-- Carousel Wrapper -->
+                            <!--Slides-->
+
+                            <!--Controls-->
+                            <button class="carousel-control-prev" data-mdb-target="#reviews_carousel"
+                                    type="button"
+                                    data-mdb-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" data-mdb-target="#reviews_carousel"
+                                    type="button"
+                                    data-mdb-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            <!--Controls-->
                         </div>
                     </section>
                     <!--Section: Content-->
