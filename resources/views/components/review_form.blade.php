@@ -16,6 +16,14 @@
         .carousel .carousel-control-prev-icon, .carousel .carousel-control-next-icon {
             background-image: none;
         }
+
+        .carousel-control-next-icon::after {
+            content: "\f0a9" !important;
+        }
+
+        .carousel-control-prev-icon::after {
+            content: "\f0a8" !important;
+        }
     </style>
 @endsection
 

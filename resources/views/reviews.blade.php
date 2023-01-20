@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-slot name="header">
         <div class="col-12 text-center dark-grey-text" id="">
             <!-- Section heading -->
