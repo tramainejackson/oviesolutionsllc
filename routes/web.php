@@ -28,7 +28,9 @@ Route::post('/contact_post', [SettingController::class, 'contact_post'])->name('
 Route::get('/dashboard', [SettingController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
 Route::post('/dashboard_update', [SettingController::class, 'dashboard_update'])->name('dashboard_update')->middleware(['auth']);
 
+//Admin Messages
 Route::get('/admin_messages', [SettingController::class, 'admin_messages'])->name('admin_messages')->middleware(['auth']);
+Route::post('/admin_messages', [SettingController::class, 'admin_messages_remove'])->name('admin_messages_remove')->middleware(['auth']);
 
 //Admin Terms
 Route::get('/admin_terms', [SettingController::class, 'admin_terms'])->name('admin_terms')->middleware(['auth']);

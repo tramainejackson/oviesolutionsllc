@@ -9,10 +9,10 @@ use App\Models\Review;
 use App\Models\Term;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class SettingController extends Controller
 {
@@ -158,17 +158,35 @@ class SettingController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Retrieve the specified resource in storage.
      *
-     * @param \App\Models\Setting $message
      * @return \Illuminate\Http\Response
      */
     public function admin_messages()
     {
         // Get all messages
-        $messages = Message::paginate(10);
+        $messages = Message::leastRecent();
 
         return view('admin.messages', compact('messages'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @return string
+     */
+    public function admin_messages_remove(Request $request)
+    {
+        $messages = $request->message_id;
+        $remove_count = 0;
+
+        foreach ($messages as $message) {
+            if(Message::find($message)->delete()) {
+                $remove_count++;
+            }
+        }
+
+        return back()->with('status', 'You have removed ' . $remove_count . ' messages successfully.');
     }
 
     /**
@@ -187,7 +205,7 @@ class SettingController extends Controller
     /**
      * Display the admin dashboard
      *
-     * @return mixed
+     * @return string
      */
     public function admin_terms_update(Request $request)
     {
@@ -195,7 +213,11 @@ class SettingController extends Controller
 
         $term->show_term = $request->show_term;
 
-        $term->save();
+        if($term->save()) {
+            return 'Term/Condition Updated Successfully';
+        } else {
+            return 'Term/Condition Not Updated Successfully. Please Try Again';
+        }
     }
 
     /**
@@ -212,9 +234,8 @@ class SettingController extends Controller
     }
 
     /**
-     * Display the admin dashboard
-     *
-     * @return mixed
+     * Update the admin options in database
+     * @return string
      */
     public function admin_reviews_update(Request $request)
     {
@@ -222,155 +243,11 @@ class SettingController extends Controller
 
         $review->show_review = $request->show_review;
 
-        $review->save();
-    }
-
-    /**
-     * Display the payment options
-     *
-     * @return mixed
-     */
-    public function payment_options()
-    {
-        //Return the view
-        return view('payment');
-    }
-
-    /**
-     * Post and save a contact message
-     *
-     * @return mixed
-     */
-    public function send_contact(Request $request)
-    {
-        $message = new Message();
-
-        $message->name = $request->name;
-        $message->email = $request->email;
-        $message->subject = $request->subject;
-        $message->message = $request->message;
-
-        if ($message->save()) {
-            return redirect()->route('welcome')->with('status', 'Message Sent Successfully');
-        }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \App\Http\Requests\StoreSettingRequest $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreSettingRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Setting $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Setting $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \App\Http\Requests\UpdateSettingRequest $request
-     * @param \App\Models\Setting $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePriceRequest $request, Setting $setting)
-    {
-        // Get settings instance
-        // $settings = $setting;
-
-        // Validated data
-        $validated = $request->safe();
-
-        // Add values to application variable
-        foreach ($validated as $key => $value) {
-            Price::where('type', $key)
-                ->update(['price' => $value]);
+        if($review->save()) {
+            return 'Review Updated Successfully';
+        } else {
+            return 'Review Not Updated. Please Try Again.';
         }
 
-        return redirect()->back()->with('status', 'Prices updated successfully');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \App\Http\Requests\UpdateSettingRequest $request
-     * @param \App\Models\Setting $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function update_2(UpdateSettingRequest $request, Setting $setting)
-    {
-        // Get settings instance
-        $settings = $setting;
-        dd($settings);
-        // Validated data
-        $validated = $request->safe();
-
-        // Add values to application variable
-        foreach ($validated as $key => $value) {
-            Price::where('type', $key)
-                ->update(['price' => $value]);
-        }
-
-        return redirect()->back()->with('status', 'Settings updated successfully');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Setting $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Setting $setting)
-    {
-        //
-    }
-
-    public function remove_multiple_messages(Request $request)
-    {
-        $remove_selected = $request->remove_message;
-        $removed_count = 0;
-
-        foreach ($remove_selected as $message_id) {
-            $message = Message::find($message_id);
-
-            // Removed Consult Request
-            if ($message->delete()) {
-                $removed_count++;
-            }
-        }
-
-        return back()->with('status', $removed_count . ' Messages Removed Successfully');
     }
 }

@@ -16,7 +16,7 @@ mix.sass('resources/src/scss/mdb.pro.scss', 'public/css/style.min.css')
 
 mix.postCss('resources/css/custom_styles.css', 'public/css');
 
-mix.js('resources/src/js/mdb.pro.js', 'public/js/scripts.min.js');
+// mix.js('resources/src/js/mdb.pro.js', 'public/js/scripts.min.js');
 
 // mix.js('resources/js/style.js', 'public/js').postCss('resources/css/style.css', 'public/css', [
 //     require('tailwindcss'),

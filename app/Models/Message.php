@@ -17,19 +17,27 @@ class Message extends Model
 		return $this->first_name . " " . $this->last_name;
 	}
 
-	/**
-	 * Get the consult request record associated with the user.
-	 */
-	public function consultContact()	{
-		return $this->hasOne('App\ConsultContact');
-	}
+    /**
+     * Get the phone number of the settings
+     */
+    public function concat_phone()
+    {
+        if ($this->phone != null) {
+            if (strlen($this->phone) == 10) {
+                $first3 = substr($this->phone, 0, 3);
+                $second3 = substr($this->phone, 3, 3);
+                $last4 = substr($this->phone, 6);
 
-	/**
-	 * Get the consult request record associated with the user.
-	 */
-	public function consultResponse()	{
-		return $this->hasOne('App\ConsultResponse');
-	}
+                $concatPhone = $first3 . '-' . $second3 . '-' . $last4;
+            } else {
+                $concatPhone = $this->phone;
+            }
+        } else {
+            $concatPhone = $this->phone;
+        }
+
+        return $concatPhone;
+    }
 
 	/**
 	 * Scope a query to only include most recent consult request
@@ -39,8 +47,7 @@ class Message extends Model
 	 * @return \Illuminate\Database\Eloquent\Builder
 	 */
 	public function scopeLeastRecent($query)	{
-		return $query->where('responded', '=', 'N')
-			->orderBy('created_at', 'asc')
+		return $query->orderBy('created_at', 'asc')
 			->get();
 	}
 }

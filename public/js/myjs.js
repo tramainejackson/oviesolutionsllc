@@ -49,12 +49,8 @@ function updateReview(parent) {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var main = document.querySelector('main');
-                var alert = document.createElement('div');
-                alert.innerHTML = "<div class='alert' role='alert' data-mdb-color='primary'><i class='fas fa-info-circle me-3'></i>A simple primary alert—check it out! </div>";
-
-                main.append(alert);
-                mdb.Alert.getInstance(document.getElementById('show-example')).show();
+                document.getElementsByClassName('alertBody')[0].innerHTML = this.responseText;
+                mdb.Alert.getInstance(document.getElementById('return-data-alert')).show();
             }
         }
 
@@ -83,12 +79,8 @@ function updateTerm(parent) {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var main = document.querySelector('main');
-                var alert = document.createElement('div');
-                alert.innerHTML = "<div class='alert' role='alert' data-mdb-color='primary'><i class='fas fa-info-circle me-3'></i>A simple primary alert—check it out! </div>";
-
-                main.append(alert);
-                mdb.Alert.getInstance(document.getElementById('show-example')).show();
+                document.getElementsByClassName('alertBody')[0].innerHTML = this.responseText;
+                mdb.Alert.getInstance(document.getElementById('return-data-alert')).show();
             }
         }
 
@@ -98,6 +90,45 @@ function updateTerm(parent) {
     }
 }
 
-// function removeMessage(btn) {
-//
-// }
+function addDeleteMessagesBtn() {
+    const paginationDiv = document.getElementsByClassName('datatable-pagination')[0];
+    const paginationWrapper = document.getElementsByClassName('datatable-select-wrapper')[0];
+    var deleteBtn = document.createElement("button");
+    var checkBoxesCount = document.getElementsByClassName('form-check-input').length;
+    var checkedCount = 0;
+
+    if (checkBoxesCount >= 1 && document.getElementsByClassName('removeMessagesBtn').length === 0) {
+        const animate = new mdb.Animate(deleteBtn, {
+            animation: 'fly-in',
+        });
+
+        deleteBtn.id = "remove-message-btn";
+        deleteBtn.className = "btn btn-danger me-auto removeMessagesBtn";
+        deleteBtn.innerHTML = "Remove Selected Messages";
+        deleteBtn.setAttribute('type','submit');
+        deleteBtn.setAttribute('onclick','event.preventDefault(); document.getElementById(\'messages-remove-form\').submit();');
+        paginationDiv.insertBefore(deleteBtn, paginationWrapper);
+
+        animate.init();
+        animate.startAnimation();
+    } else {
+        const element = document.getElementById('remove-message-btn');
+        const animate = new mdb.Animate(element, {
+            animation: 'fly-out',
+            onEnd: function () { element.remove(); }
+        });
+        var x = 0;
+
+        for (x; x < document.getElementsByClassName('form-check-input').length; x++) {
+            if (document.getElementsByClassName('form-check-input')[x].checked) {
+                checkedCount++;
+            }
+        }
+
+        if (checkedCount === 0 && document.getElementsByClassName('removeMessagesBtn').length === 1) {
+            animate.init();
+            animate.startAnimation();
+        }
+    }
+
+}

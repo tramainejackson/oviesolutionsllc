@@ -6,6 +6,8 @@
 /public/img
 /public/css/mdb*
 /public/js/mdb*
+/public/js/free
+/public/js/modules
 /public/todos
 /public/storage
 /public/storage/*

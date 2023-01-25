@@ -19,7 +19,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bakbak+One&family=Moon+Dance&family=Raleway&family=Roboto+Flex:opsz,wght@8..144,100;8..144,400;8..144,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bakbak+One&family=Moon+Dance&family=Raleway&family=Roboto+Flex:opsz,wght@8..144,100;8..144,400;8..144,700&display=swap"
+        rel="stylesheet">
 
     <!-- Styles -->
     @yield('additional_css')
@@ -41,13 +43,40 @@
     <!-- Page Content -->
     <main>
         {{ $slot }}
+
+        <div
+            class="alert fade"
+            id="return-data-alert"
+            role="alert"
+            data-mdb-color="success"
+            data-mdb-position="top-right"
+            data-mdb-stacking="true"
+            data-mdb-width="300px"
+            data-mdb-append-to-body="true"
+            data-mdb-hidden="true"
+            data-mdb-autohide="true"
+            data-mdb-delay="4000">
+            <p class="alertBody m-0 p-0 text-center"></p>
+        </div>
     </main>
 </div>
 
 @include('layouts.footer')
 
 <!-- Bootstrap core -->
-<script type="text/javascript" src="{{ asset('js/scripts.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
+
+@if(session('status'))
+    <script type="text/javascript">
+        document.getElementsByClassName('alertBody')[0].innerHTML = '{{ session('status') }}';
+        mdb.Alert.getInstance(document.getElementById('return-data-alert')).show();
+    </script>
+@elseif(session('bad_status'))
+    <script type="text/javascript">
+        document.getElementsByClassName('alertBody')[0].innerHTML = '{{ session('bad_status') }}';
+        mdb.Alert.getInstance(document.getElementById('return-data-alert')).show();
+    </script>
+@endif
 
 <!-- SCRIPTS -->
 @yield('additional_scripts')

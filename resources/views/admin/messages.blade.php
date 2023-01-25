@@ -1,17 +1,5 @@
 <x-app-layout>
 
-    @section('additional_css')
-        <!-- Style For Input Formatting -->
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-        <link rel="stylesheet" href="{{ asset('css/style2.min.css')}}">
-
-        <style type="text/css">
-            .navbar {
-                font-weight: inherit;
-            }
-        </style>
-    @endsection
-
     <x-slot name="header">
         <div class="col-12 text-center dark-grey-text" id="">
             <!-- Section heading -->
@@ -20,158 +8,99 @@
         </div>
     </x-slot>
 
-    <div class="container-fluid my-5" id="admin_messages">
+    <form method="POST" action="{{ route('admin_messages_remove') }}" id="messages-remove-form" class="">
+        @csrf
 
-        <div class="row">
+        <div class="container-fluid my-5" id="admin_messages" onclick="getRowContent(event)">
 
-            <div class="col-12">
+            <div class="row">
 
-                <form method="POST" id=settings-form" action="{{ route('login') }}">
-                    @csrf
+                <div class="col-12">
 
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <h2 class="h2 text-muted text-left text-decoration-underline">Settings</h2>
-                            </div>
+                    <div class="datatable" data-mdb-pagination="true" data-mdb-striped="true"
+                         data-mdb-noFoundMessage="You Do Not Currently Have Any Received Messages">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="th-sm"></th>
+                                <th class="th-sm">Name</th>
+                                <th class="th-sm">Email Address</th>
+                                <th class="th-sm">Phone</th>
+                                <th class="th-sm">Organization</th>
+                                <th class="th-sm">Reason</th>
+                                <th class="th-sm">Received date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                            <div class="col-12">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <input type="email" name="email" class="form-control"
-                                           value="{{ $setting->email != null ? $setting->email : '' }}"
-                                           placeholder="Enter The Email Address"/>
-                                    <label for="email" class="active"><span
-                                            class="border rounded-7 font-small p-1">01</span>&nbsp;
-                                        Email Address</label>
-                                </div>
+                            @foreach($messages as $message)
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="message_id[]"
+                                                   value="{{ $message->id }}" id="checkbox{{ $message->id }}"
+                                                   onchange="addDeleteMessagesBtn()"/>
+                                            <label class="form-check-label" for="checkbox{{ $message->id }}"></label>
+                                        </div>
+                                    </td>
+                                    <td>{{ $message->name }}</td>
+                                    <td>{{ $message->email }}</td>
+                                    <td>{{ $message->concat_phone() }}</td>
+                                    <td>{{ $message->organization }}</td>
+                                    <td>{{ $message->reason }}</td>
+                                    <td>{{ $message->created_at->format('m/d/Y') }}</td>
+                                </tr>
+                            @endforeach
 
-                                @if ($errors->has('email'))
-                                    <p class="red-text">{{ $errors->first('email') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <input type="text" name="phone" class="form-control"
-                                           value="{{ $setting->phone != null ? $setting->phone : '' }}"
-                                           placeholder="Enter The Phone Number"/>
-                                    <label for="phone" class="active"><span
-                                            class="border rounded-7 font-small p-1">02</span>&nbsp;
-                                        Phone Number</label>
-                                </div>
-
-                                @if ($errors->has('phone'))
-                                    <p class="red-text">{{ $errors->first('phone') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <input type="text" name="address" class="form-control"
-                                           value="{{ $setting->address != null ? $setting->address : '' }}"
-                                           placeholder="Enter The Address"/>
-                                    <label for="address" class="active"><span
-                                            class="border rounded-7 font-small p-1">03</span>&nbsp;
-                                        Address</label>
-                                </div>
-
-                                @if ($errors->has('address'))
-                                    <p class="red-text">{{ $errors->first('address') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12 col-md-4">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <input type="text" name="city" class="form-control"
-                                           value="{{ $setting->city != null ? $setting->city : '' }}"
-                                           placeholder="Enter The City"/>
-                                    <label for="city" class="active"><span
-                                            class="border rounded-7 font-small p-1">04</span>&nbsp;
-                                        City</label>
-                                </div>
-
-                                @if ($errors->has('city'))
-                                    <p class="red-text">{{ $errors->first('city') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12 col-md-4">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <input type="text" name="state" class="form-control"
-                                           value="{{ $setting->state != null ? $setting->state : '' }}"
-                                           placeholder="Enter The State"/>
-                                    <label for="state" class="active"><span
-                                            class="border rounded-7 font-small p-1">05</span>&nbsp;
-                                        State</label>
-                                </div>
-
-                                @if ($errors->has('state'))
-                                    <p class="red-text">{{ $errors->first('state') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12 col-md-4">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <input type="number" name="zip" class="form-control"
-                                           value="{{ $setting->zip != null ? $setting->zip : '' }}"
-                                           placeholder="Enter The Zip Code"/>
-                                    <label for="zip" class="active"><span
-                                            class="border rounded-7 font-small p-1">06</span>&nbsp;
-                                        Zip Code</label>
-                                </div>
-
-                                @if ($errors->has('zip'))
-                                    <p class="red-text">{{ $errors->first('zip') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <textarea rows="4" name="mission" class="form-control md-textarea"
-                                              placeholder="Enter The Mission Statement">{{ $setting->mission != null ? $setting->mission : '' }}</textarea>
-                                    <label for="mission" class="active"><span
-                                            class="border rounded-7 font-small p-1">07</span>&nbsp;
-                                        Mission Statement</label>
-                                </div>
-
-                                @if ($errors->has('mission'))
-                                    <p class="red-text">{{ $errors->first('mission') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12">
-                                <div class="md-form px-4 pt-2 mb-0">
-                                    <textarea rows="4" name="vision" class="form-control md-textarea"
-                                              placeholder="Enter The Company Vision">{{ $setting->vision != null ? $setting->vision : '' }}</textarea>
-                                    <label for="vision" class="active"><span
-                                            class="border rounded-7 font-small p-1">08</span>&nbsp;
-                                        Company Vision</label>
-                                </div>
-
-                                @if ($errors->has('vision'))
-                                    <p class="red-text">{{ $errors->first('vision') }}</p>
-                                @endif
-
-                            </div>
-
-                            <div class="col-12 mt-4 text-left">
-                                <a class="btn btn-outline-mdb-color rounded-9"
-                                   onclick="document.getElementById('settings-form').submit();">Update Settings&nbsp;&nbsp;<i
-                                        class="fas fa-location-arrow"></i></a>
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                </form>
+                </div>
             </div>
+        </div>
+    </form>
 
+    <!-- Modal -->
+    <div class="modal fade" id="messagesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    @section('additional_scripts')
+        <script type="text/javascript" src="{{ asset('js/myjs.js') }}"></script>
+        <script type="text/javascript">
+            function getRowContent(event) {
+                var element = event.target;
+
+                if(element.nodeName != 'TH') {
+                    var rowElement = element.parentElement;
+                    var rowNameField = rowElement.children[1].textContent;
+                    var rowEmailField = rowElement.children[2].textContent;
+                    var rowPhoneField = rowElement.children[3].textContent;
+                    var rowOrganizationField = rowElement.children[4].textContent;
+                    var rowReasonField = rowElement.children[5].textContent;
+                    var rowDateField = rowElement.children[6].textContent;
+
+                    const myModalEl = document.getElementById('messagesModal')
+                    const modal = new mdb.Modal(myModalEl);
+
+                    document.getElementsByClassName('modal-title')[0].innerHTML = rowNameField;
+                    document.getElementsByClassName('modal-body')[0].innerHTML = rowReasonField;
+
+                    modal.show()
+                }
+            }
+        </script>
+    @endsection
 
 </x-app-layout>
