@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="row row-cols-3 mx-auto gy-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mx-auto gy-4">
 
             @foreach($all_terms as $term)
                 <div class="col">

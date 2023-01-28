@@ -10,7 +10,7 @@
 
     <div class="container-fluid my-5" id="admin_reviews">
 
-        <div class="row row-cols-3 mx-auto">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 mx-auto gy-4">
 
             @foreach($reviews as $review)
                 <div class="col">

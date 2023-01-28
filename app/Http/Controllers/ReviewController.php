@@ -64,9 +64,9 @@ class ReviewController extends Controller
         $review->tell_someone = $request->tell_someone;
 
         if ($review->save()) {
-            return back()->with('status', 'Testimonial saved successfully!');
+            return back()->with('status', 'Review saved successfully! We strive to continuously get better. Thank you for leaving a review.');
         } else {
-            return back()->with('bad_status', 'Testimonial not saved. Please try again.');
+            return back()->with('bad_status', 'Review not saved. Please try again.');
         }
     }
 

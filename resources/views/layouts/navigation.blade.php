@@ -14,10 +14,17 @@
             <i class="fas fa-bars"></i>
         </button>
 
+        <!-- Logo -->
+        <div class="d-lg-none mx-auto">
+            <a class="navbar-brand px-lg-2" href="{{ route('welcome') }}">
+                <x-application-logo class="block h-10 w-auto fill-current text-gray-600"/>
+            </a>
+        </div>
+
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Logo -->
-            <div class="d-flex flex-column align-items-center ms-3 ms-lg-0">
+            <div class="d-none d-lg-flex flex-column align-items-center ms-3 ms-lg-0">
                 <a class="navbar-brand px-lg-2" href="{{ route('welcome') }}">
                     <x-application-logo class="block h-10 w-auto fill-current text-gray-600"/>
                 </a>

@@ -115,7 +115,7 @@ class SettingController extends Controller
         $message->reason = $request->reason;
 
         if ($message->save()) {
-            return back()->with('status', 'You contact request has been save! We will reach out to you in a reasonable amount of time. Thank You');
+            return back()->with('status', 'Your message has been received! We will review the message and reach out to you with a response in a resonable amount of time. Thank you for contacting us.');
         } else {
             return back()->with('bad_status', 'Message not saved. Please try again.');
         }
@@ -153,7 +153,7 @@ class SettingController extends Controller
         if($setting->save()) {
             return redirect()->back()->with('status', 'Settings Updated Successfully');
         } else {
-            return redirect()->route('welcome')->with('status', 'Message Sent Successfully');
+            return redirect()->route('welcome')->with('status', 'Settings not updated. Please try to save again.');
         }
     }
 

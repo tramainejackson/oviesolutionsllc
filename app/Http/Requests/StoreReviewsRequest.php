@@ -29,7 +29,7 @@ class StoreReviewsRequest extends FormRequest
             'email' => 'required|email|max:100',
             'suggestions' => 'nullable|string|max:250',
             'tell_someone' => 'nullable|string|max:250',
-            'rating' => 'required|integer',
+            'rating' => 'required|numeric',
         ];
     }
 }

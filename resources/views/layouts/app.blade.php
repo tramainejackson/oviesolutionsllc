@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{ asset('css/custom_styles.css') }}">
 
 </head>
-<body class="" id="body">
+<body class="" id="body"881                                                                                                                                                                    >
 <div class="min-vh-100">
     @include('layouts.navigation')
 
