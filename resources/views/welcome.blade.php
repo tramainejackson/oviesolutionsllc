@@ -34,7 +34,7 @@
     <div id="solution_options" class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="h1 my-5">At Ovie Solutions, we specialize in delivering comprehensive IT solutions tailored
+                <h1 class="col-lg-8 col-md-10 h1 mx-auto my-5 font2">At Ovie Solutions, we specialize in delivering comprehensive IT solutions tailored
                     to meet your business needs. With our expertise and dedication to excellence, we help businesses
                     optimize their technology infrastructure and drive growth. Whether you require IT consulting,
                     managed services, cybersecurity solutions, or cloud computing, we have the knowledge and experience
