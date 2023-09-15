@@ -4,12 +4,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-9 px-4">
-                    <h2 class="display-1 pb-4 font2">Let's work <span class="text-primary text-uppercase">together</span></h2>
+                    <h2 class="display-1 pb-4 font2">Let's work <span
+                            class="text-primary text-uppercase">together</span></h2>
 
                     <div class="pb-4">
-                        <p class="my-0 py-0">Let's build ad work together to get it done.</p>
-                        <p class="my-0 py-0">Fill out the following form and we will get back to you as soon as
-                            possible.</p>
+                        <p class="my-0 py-0">Ready to transform your IT infrastructure and achieve business growth?</p>
+                        <p class="my-0 py-0">Contact us today to schedule a consultation or request a quote. Our
+                            friendly team is here to assist you every step of the way.</p>
                     </div>
                 </div>
 

@@ -34,7 +34,12 @@
     <div id="solution_options" class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="h1 my-5">We Are The Solution</h1>
+                <h1 class="h1 my-5">At Ovie Solutions, we specialize in delivering comprehensive IT solutions tailored
+                    to meet your business needs. With our expertise and dedication to excellence, we help businesses
+                    optimize their technology infrastructure and drive growth. Whether you require IT consulting,
+                    managed services, cybersecurity solutions, or cloud computing, we have the knowledge and experience
+                    to ensure your success.
+                </h1>
             </div>
         </div>
 
@@ -44,10 +49,11 @@
             </div>
             <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
-                    <h2 class="">Program/Project Management</h2>
-                    <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
-                        labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
-                        neque maiores dolorem unde? Aut dolorum quod excepturi fugit.</p>
+                    <h2 class="">Cybersecurity Solutions</h2>
+                    <p class>Protect your valuable data and secure your business against cyber threats with our robust
+                        cybersecurity solutions. We employ industry-leading tools and practices to identify
+                        vulnerabilities, implement advanced security measures, conduct regular audits, and provide
+                        employee training to mitigate risks and keep your business safe.</p>
                 </div>
             </div>
 
@@ -59,15 +65,16 @@
             </div>
             <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
-                    <h2 class="">Software Support</h2>
-                    <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
-                        labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
-                        neque maiores dolorem unde? Aut dolorum quod excepturi fugit.</p>
+                    <h2 class="">Cloud Computing</h2>
+                    <p class>Leverage the power of the cloud to enhance collaboration, scalability, and efficiency. Our
+                        cloud computing solutions enable you to access your data and applications from anywhere, at any
+                        time, while ensuring data security and reducing infrastructure costs. We offer cloud migration,
+                        architecture design, and ongoing management services.</p>
                 </div>
             </div>
         </div>
 
-        <hr class="hr hr-blurry d-none d-lg-block" />
+        <hr class="hr hr-blurry d-none d-lg-block"/>
 
         <div class="row justify-content-center justify-content-lg-evenly">
             <div class="col-lg-2 col-4 d-flex align-items-center justify-content-end">
@@ -75,10 +82,11 @@
             </div>
             <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
-                    <h2 class="">Hardware Repair</h2>
-                    <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
-                        labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
-                        neque maiores dolorem unde? Aut dolorum quod excepturi fugit.</p>
+                    <h2 class="">IT Consulting</h2>
+                    <p class>Our experienced IT consultants will work closely with you to understand your business
+                        objectives and design strategic technology solutions to support your goals. From IT
+                        infrastructure planning and optimization to business process automation, we provide valuable
+                        insights and recommendations to help you make informed decisions.</p>
                 </div>
             </div>
 
@@ -90,10 +98,11 @@
             </div>
             <div class="col-lg-3 col-12 col-md-4 d-flex align-items-center justify-content-end">
                 <div>
-                    <h2 class="">Backup and Disaster Recovery</h2>
-                    <p class>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
-                        labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
-                        neque maiores dolorem unde? Aut dolorum quod excepturi fugit.</p>
+                    <h2 class="">Managed IT Services</h2>
+                    <p class>Take the hassle out of managing your IT systems and focus on what matters most - your
+                        business. Our proactive managed IT services ensure that your technology is operating at its
+                        best, minimizing downtime, and maximizing productivity. We offer 24/7 monitoring, helpdesk
+                        support, network management, and comprehensive IT maintenance.</p>
                 </div>
             </div>
         </div>
