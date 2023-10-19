@@ -30,9 +30,9 @@
 
             <div class="col-12 col-md-3 pb-4 pt-5 pt-md-2 px-4 text-left text-md-center">
                 <div class="">
-                    <h4 class="uppercase">Call Us</h4>
+                    <h4 class="uppercase">Email Us</h4>
 
-                    <p>{{ $setting->concat_phone() }}</p>
+                    <p class=""><a href="mailto:oviesolutionsllc@gmail.com" class="btn btn-blue-grey btn-link mt-n1 ms-0 white-text">{{ $setting->email }}</a></p>
                 </div>
 
                 @if($setting->address !== null)

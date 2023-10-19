@@ -6,7 +6,7 @@
                     <div>
                         <h2 class="h2 pt-5 pt-xl-5 pt-sm-2 font2">Ovie Solutions</h2>
                         <p class="">At Ovie Solutions, we are a team of dedicated IT professionals with a passion for
-                            delivering exceptional service and driving business success. With over 10 years of
+                            delivering exceptional service and driving business led by Anthony Oghogho. With over 10 years of
                             experience in
                             the IT industry, we have a broad range of knowledge at our disposal and have built a
                             reputation
