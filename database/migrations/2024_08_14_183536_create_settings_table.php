@@ -26,6 +26,7 @@ class CreateSettingsTable extends Migration
             $table->integer('hit_count')->nullable();
             $table->date('hit_count_date')->nullable();
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 
